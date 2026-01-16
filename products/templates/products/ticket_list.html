@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Liste des Tickets</title>
+</head>
+<body>
+<h1>Tickets disponibles</h1>
+
+<ul>
+  {% for ticket in page_obj %}
+    <li>
+      <strong>{{ ticket.name }}</strong><br>
+      Catégorie : {{ ticket.get_category_display }}<br>
+      Prix : {{ ticket.price }} €<br>
+      Stock : {{ ticket.stock }}
+    </li>
+  {% empty %}
+    <li>Aucun ticket disponible</li>
+  {% endfor %}
+</ul>
+
+<!-- Pagination -->
+<div>
+  {% if page_obj.has_previous %}
+    <a href="?page={{ page_obj.previous_page_number }}">Précédent</a>
+  {% endif %}
+
+  Page {{ page_obj.number }} sur {{ page_obj.paginator.num_pages }}
+
+  {% if page_obj.has_next %}
+    <a href="?page={{ page_obj.next_page_number }}">Suivant</a>
+  {% endif %}
+</div>
+
+</body>
+</html>
