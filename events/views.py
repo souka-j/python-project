@@ -6,13 +6,13 @@ import json
 
 @require_http_methods(["GET"])
 def list_events(request):
-    """Liste tous les événements"""
+ 
     events = Event.objects.all().values()
     return JsonResponse(list(events), safe=False)
 
 @require_http_methods(["POST"])
 def create_event(request):
-    """Crée un nouvel événement"""
+   
     try:
         data = json.loads(request.body)
 
