@@ -1,7 +1,7 @@
 from django.urls import path
-from .views import list_events, create_event
+from .views import EventListAPIView, TicketListAPIView
 
 urlpatterns = [
-    path('', list_events, name='list_events'),
-    path('create/', create_event, name='create_event'),
+    path('api/events/', EventListAPIView.as_view(), name='api-events'),
+    path('api/tickets/', TicketListAPIView.as_view(), name='api-tickets'),
 ]
