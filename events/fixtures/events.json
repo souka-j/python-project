@@ -1,74 +1,58 @@
 [
-  {
-    "model": "events.event",
-    "pk": 1,
-    "fields": {
-      "name": "Morocco vs Comoros (AFCON Group A)",
-      "description": "Match de phase de groupes de la CAN 2025/2026",
-      "date": "2025-12-21T20:00:00Z",
-      "location": "Stade Prince Moulay Abdellah, Rabat",
-      "capacity": 69500,
-      "created_at": "2025-10-01T10:00:00Z"
-    }
-  },
-  {
-    "model": "events.event",
-    "pk": 2,
-    "fields": {
-      "name": "Morocco vs Mali (AFCON Group A)",
-      "description": "Deuxième match de groupe de la CAN",
-      "date": "2025-12-26T21:00:00Z",
-      "location": "Stade Prince Moulay Abdellah, Rabat",
-      "capacity": 69500,
-      "created_at": "2025-10-01T10:00:00Z"
-    }
-  },
-  {
-    "model": "events.event",
-    "pk": 3,
-    "fields": {
-      "name": "Zambia vs Morocco (AFCON Group A)",
-      "description": "Dernier match de la phase de groupes",
-      "date": "2025-12-29T20:00:00Z",
-      "location": "Stade Prince Moulay Abdellah, Rabat",
-      "capacity": 69500,
-      "created_at": "2025-10-01T10:00:00Z"
-    }
-  },
-  {
-    "model": "events.event",
-    "pk": 4,
-    "fields": {
-      "name": "Morocco vs Tanzania (AFCON Round of 16)",
-      "description": "Huitième de finale de la CAN",
-      "date": "2026-01-04T17:00:00Z",
-      "location": "Stade Prince Moulay Abdellah, Rabat",
-      "capacity": 69500,
-      "created_at": "2025-10-01T10:00:00Z"
-    }
-  },
-  {
-    "model": "events.event",
-    "pk": 5,
-    "fields": {
-      "name": "Morocco vs Cameroon (AFCON Quarter Final)",
-      "description": "Quart de finale de la CAN",
-      "date": "2026-01-09T20:00:00Z",
-      "location": "Stade Prince Moulay Abdellah, Rabat",
-      "capacity": 69500,
-      "created_at": "2025-10-01T10:00:00Z"
-    }
-  },
-  {
-    "model": "events.event",
-    "pk": 6,
-    "fields": {
-      "name": "Morocco vs Senegal (AFCON Final)",
-      "description": "Finale de la Coupe d’Afrique des Nations",
-      "date": "2026-01-18T20:00:00Z",
-      "location": "Stade Prince Moulay Abdellah, Rabat",
-      "capacity": 69500,
-      "created_at": "2025-10-01T10:00:00Z"
-    }
-  }
+  {"model": "events.event","pk": 1,"fields":{"name":"Morocco vs Comoros (Group A)","description":"Phase de groupes","date":"2025-12-21T20:00:00Z","location":"Stade Prince Moulay Abdellah, Rabat","capacity":69500,"created_at":"2025-10-01T10:00:00Z"}},
+  {"model": "events.event","pk": 2,"fields":{"name":"Morocco vs Mali (Group A)","description":"Phase de groupes","date":"2025-12-26T21:00:00Z","location":"Stade Prince Moulay Abdellah, Rabat","capacity":69500,"created_at":"2025-10-01T10:00:00Z"}},
+  {"model": "events.event","pk": 3,"fields":{"name":"Zambia vs Morocco (Group A)","description":"Phase de groupes","date":"2025-12-29T20:00:00Z","location":"Stade Prince Moulay Abdellah, Rabat","capacity":69500,"created_at":"2025-10-01T10:00:00Z"}},
+  {"model": "events.event","pk": 4,"fields":{"name":"Comoros vs Mali (Group A)","description":"Phase de groupes","date":"2025-12-22T20:00:00Z","location":"Stade Prince Moulay Abdellah, Rabat","capacity":69500,"created_at":"2025-10-01T10:00:00Z"}},
+  {"model": "events.event","pk": 5,"fields":{"name":"Zambia vs Comoros (Group A)","description":"Phase de groupes","date":"2025-12-25T20:00:00Z","location":"Stade Prince Moulay Abdellah, Rabat","capacity":69500,"created_at":"2025-10-01T10:00:00Z"}},
+  {"model": "events.event","pk": 6,"fields":{"name":"Zambia vs Mali (Group A)","description":"Phase de groupes","date":"2025-12-28T20:00:00Z","location":"Stade Prince Moulay Abdellah, Rabat","capacity":69500,"created_at":"2025-10-01T10:00:00Z"}},
+
+  {"model": "events.event","pk": 7,"fields":{"name":"Egypt vs Nigeria (Group B)","description":"Phase de groupes","date":"2025-12-21T20:00:00Z","location":"Stade de Marrakech, Marrakech","capacity":45000,"created_at":"2025-10-01T10:00:00Z"}},
+  {"model": "events.event","pk": 8,"fields":{"name":"Egypt vs Ghana (Group B)","description":"Phase de groupes","date":"2025-12-26T21:00:00Z","location":"Stade de Marrakech, Marrakech","capacity":45000,"created_at":"2025-10-01T10:00:00Z"}},
+  {"model": "events.event","pk": 9,"fields":{"name":"Cameroon vs Egypt (Group B)","description":"Phase de groupes","date":"2025-12-29T20:00:00Z","location":"Stade de Marrakech, Marrakech","capacity":45000,"created_at":"2025-10-01T10:00:00Z"}},
+  {"model": "events.event","pk": 10,"fields":{"name":"Nigeria vs Ghana (Group B)","description":"Phase de groupes","date":"2025-12-22T20:00:00Z","location":"Stade de Marrakech, Marrakech","capacity":45000,"created_at":"2025-10-01T10:00:00Z"}},
+  {"model": "events.event","pk": 11,"fields":{"name":"Nigeria vs Cameroon (Group B)","description":"Phase de groupes","date":"2025-12-25T20:00:00Z","location":"Stade de Marrakech, Marrakech","capacity":45000,"created_at":"2025-10-01T10:00:00Z"}},
+  {"model": "events.event","pk": 12,"fields":{"name":"Ghana vs Cameroon (Group B)","description":"Phase de groupes","date":"2025-12-28T20:00:00Z","location":"Stade de Marrakech, Marrakech","capacity":45000,"created_at":"2025-10-01T10:00:00Z"}},
+
+  {"model": "events.event","pk": 13,"fields":{"name":"Algeria vs Ivory Coast (Group C)","description":"Phase de groupes","date":"2025-12-21T20:00:00Z","location":"Stade de Casablanca, Casablanca","capacity":50000,"created_at":"2025-10-01T10:00:00Z"}},
+  {"model": "events.event","pk": 14,"fields":{"name":"Algeria vs Senegal (Group C)","description":"Phase de groupes","date":"2025-12-26T21:00:00Z","location":"Stade de Casablanca, Casablanca","capacity":50000,"created_at":"2025-10-01T10:00:00Z"}},
+  {"model": "events.event","pk": 15,"fields":{"name":"Tunisia vs Algeria (Group C)","description":"Phase de groupes","date":"2025-12-29T20:00:00Z","location":"Stade de Casablanca, Casablanca","capacity":50000,"created_at":"2025-10-01T10:00:00Z"}},
+  {"model": "events.event","pk": 16,"fields":{"name":"Ivory Coast vs Senegal (Group C)","description":"Phase de groupes","date":"2025-12-22T20:00:00Z","location":"Stade de Casablanca, Casablanca","capacity":50000,"created_at":"2025-10-01T10:00:00Z"}},
+  {"model": "events.event","pk": 17,"fields":{"name":"Tunisia vs Ivory Coast (Group C)","description":"Phase de groupes","date":"2025-12-25T20:00:00Z","location":"Stade de Casablanca, Casablanca","capacity":50000,"created_at":"2025-10-01T10:00:00Z"}},
+  {"model": "events.event","pk": 18,"fields":{"name":"Tunisia vs Senegal (Group C)","description":"Phase de groupes","date":"2025-12-28T20:00:00Z","location":"Stade de Casablanca, Casablanca","capacity":50000,"created_at":"2025-10-01T10:00:00Z"}},
+
+[
+  {"model": "events.event","pk":19,"fields":{"name":"Morocco vs Tunisia (Group D)","description":"Phase de groupes","date":"2025-12-21T20:00:00Z","location":"Stade de Rabat, Rabat","capacity":60000,"created_at":"2025-10-01T10:00:00Z"}},
+  {"model": "events.event","pk":20,"fields":{"name":"Morocco vs Nigeria (Group D)","description":"Phase de groupes","date":"2025-12-26T21:00:00Z","location":"Stade de Rabat, Rabat","capacity":60000,"created_at":"2025-10-01T10:00:00Z"}},
+  {"model": "events.event","pk":21,"fields":{"name":"Gabon vs Morocco (Group D)","description":"Phase de groupes","date":"2025-12-29T20:00:00Z","location":"Stade de Rabat, Rabat","capacity":60000,"created_at":"2025-10-01T10:00:00Z"}},
+  {"model": "events.event","pk":22,"fields":{"name":"Tunisia vs Nigeria (Group D)","description":"Phase de groupes","date":"2025-12-22T20:00:00Z","location":"Stade de Rabat, Rabat","capacity":60000,"created_at":"2025-10-01T10:00:00Z"}},
+  {"model": "events.event","pk":23,"fields":{"name":"Tunisia vs Gabon (Group D)","description":"Phase de groupes","date":"2025-12-25T20:00:00Z","location":"Stade de Rabat, Rabat","capacity":60000,"created_at":"2025-10-01T10:00:00Z"}},
+  {"model": "events.event","pk":24,"fields":{"name":"Nigeria vs Gabon (Group D)","description":"Phase de groupes","date":"2025-12-28T20:00:00Z","location":"Stade de Rabat, Rabat","capacity":60000,"created_at":"2025-10-01T10:00:00Z"}},
+
+  {"model": "events.event","pk":25,"fields":{"name":"Senegal vs Mali (Group E)","description":"Phase de groupes","date":"2025-12-21T20:00:00Z","location":"Stade de Casablanca, Casablanca","capacity":50000,"created_at":"2025-10-01T10:00:00Z"}},
+  {"model": "events.event","pk":26,"fields":{"name":"Senegal vs Ghana (Group E)","description":"Phase de groupes","date":"2025-12-26T21:00:00Z","location":"Stade de Casablanca, Casablanca","capacity":50000,"created_at":"2025-10-01T10:00:00Z"}},
+  {"model": "events.event","pk":27,"fields":{"name":"Tunisia vs Senegal (Group E)","description":"Phase de groupes","date":"2025-12-29T20:00:00Z","location":"Stade de Casablanca, Casablanca","capacity":50000,"created_at":"2025-10-01T10:00:00Z"}},
+  {"model": "events.event","pk":28,"fields":{"name":"Mali vs Ghana (Group E)","description":"Phase de groupes","date":"2025-12-22T20:00:00Z","location":"Stade de Casablanca, Casablanca","capacity":50000,"created_at":"2025-10-01T10:00:00Z"}},
+  {"model": "events.event","pk":29,"fields":{"name":"Mali vs Tunisia (Group E)","description":"Phase de groupes","date":"2025-12-25T20:00:00Z","location":"Stade de Casablanca, Casablanca","capacity":50000,"created_at":"2025-10-01T10:00:00Z"}},
+  {"model": "events.event","pk":30,"fields":{"name":"Ghana vs Tunisia (Group E)","description":"Phase de groupes","date":"2025-12-28T20:00:00Z","location":"Stade de Casablanca, Casablanca","capacity":50000,"created_at":"2025-10-01T10:00:00Z"}},
+
+  {"model": "events.event","pk":31,"fields":{"name":"Ivory Coast vs Cameroon (Group F)","description":"Phase de groupes","date":"2025-12-21T20:00:00Z","location":"Stade de Marrakech, Marrakech","capacity":45000,"created_at":"2025-10-01T10:00:00Z"}},
+  {"model": "events.event","pk":32,"fields":{"name":"Ivory Coast vs Egypt (Group F)","description":"Phase de groupes","date":"2025-12-26T21:00:00Z","location":"Stade de Marrakech, Marrakech","capacity":45000,"created_at":"2025-10-01T10:00:00Z"}},
+  {"model": "events.event","pk":33,"fields":{"name":"South Africa vs Ivory Coast (Group F)","description":"Phase de groupes","date":"2025-12-29T20:00:00Z","location":"Stade de Marrakech, Marrakech","capacity":45000,"created_at":"2025-10-01T10:00:00Z"}},
+  {"model": "events.event","pk":34,"fields":{"name":"Cameroon vs Egypt (Group F)","description":"Phase de groupes","date":"2025-12-22T20:00:00Z","location":"Stade de Marrakech, Marrakech","capacity":45000,"created_at":"2025-10-01T10:00:00Z"}},
+  {"model": "events.event","pk":35,"fields":{"name":"Cameroon vs South Africa (Group F)","description":"Phase de groupes","date":"2025-12-25T20:00:00Z","location":"Stade de Marrakech, Marrakech","capacity":45000,"created_at":"2025-10-01T10:00:00Z"}},
+  {"model": "events.event","pk":36,"fields":{"name":"Egypt vs South Africa (Group F)","description":"Phase de groupes","date":"2025-12-28T20:00:00Z","location":"Stade de Marrakech, Marrakech","capacity":45000,"created_at":"2025-10-01T10:00:00Z"}}
 ]
+[
+  {"model": "events.event","pk":37,"fields":{"name":"Winner Group A vs Runner-up Group B (Round of 16)","description":"Huitième de finale","date":"2026-01-02T17:00:00Z","location":"Stade Prince Moulay Abdellah, Rabat","capacity":69500,"created_at":"2025-10-01T10:00:00Z"}},
+  {"model": "events.event","pk":38,"fields":{"name":"Winner Group B vs Runner-up Group A (Round of 16)","description":"Huitième de finale","date":"2026-01-02T20:00:00Z","location":"Stade de Casablanca, Casablanca","capacity":65000,"created_at":"2025-10-01T10:00:00Z"}},
+  {"model": "events.event","pk":39,"fields":{"name":"Winner Group C vs Runner-up Group D (Round of 16)","description":"Huitième de finale","date":"2026-01-03T17:00:00Z","location":"Stade de Marrakech, Marrakech","capacity":60000,"created_at":"2025-10-01T10:00:00Z"}},
+  {"model": "events.event","pk":40,"fields":{"name":"Winner Group D vs Runner-up Group C (Round of 16)","description":"Huitième de finale","date":"2026-01-03T20:00:00Z","location":"Stade de Rabat, Rabat","capacity":60000,"created_at":"2025-10-01T10:00:00Z"}},
+  {"model": "events.event","pk":41,"fields":{"name":"Winner Group E vs Runner-up Group F (Round of 16)","description":"Huitième de finale","date":"2026-01-04T17:00:00Z","location":"Stade de Casablanca, Casablanca","capacity":50000,"created_at":"2025-10-01T10:00:00Z"}},
+  {"model": "events.event","pk":42,"fields":{"name":"Winner Group F vs Runner-up Group E (Round of 16)","description":"Huitième de finale","date":"2026-01-04T20:00:00Z","location":"Stade de Marrakech, Marrakech","capacity":45000,"created_at":"2025-10-01T10:00:00Z"}},
+  {"model": "events.event","pk":43,"fields":{"name":"Winner Group A/B vs Winner Group C/D (Quarter-Final)","description":"Quart de finale","date":"2026-01-09T20:00:00Z","location":"Stade Prince Moulay Abdellah, Rabat","capacity":69500,"created_at":"2025-10-01T10:00:00Z"}},
+  {"model": "events.event","pk":44,"fields":{"name":"Winner Group E/F vs Winner Group G/H (Quarter-Final)","description":"Quart de finale","date":"2026-01-10T20:00:00Z","location":"Stade de Casablanca, Casablanca","capacity":65000,"created_at":"2025-10-01T10:00:00Z"}},
+  {"model": "events.event","pk":45,"fields":{"name":"Quarter-Final 1 Winner vs Quarter-Final 2 Winner (Semi-Final)","description":"Demi-finale","date":"2026-01-15T20:00:00Z","location":"Stade de Marrakech, Marrakech","capacity":60000,"created_at":"2025-10-01T10:00:00Z"}},
+  {"model": "events.event","pk":46,"fields":{"name":"Quarter-Final 3 Winner vs Quarter-Final 4 Winner (Semi-Final)","description":"Demi-finale","date":"2026-01-16T20:00:00Z","location":"Stade Prince Moulay Abdellah, Rabat","capacity":69500,"created_at":"2025-10-01T10:00:00Z"}},
+  {"model": "events.event","pk":47,"fields":{"name":"Semi-Final 1 Winner vs Semi-Final 2 Winner (Final)","description":"Finale","date":"2026-01-18T20:00:00Z","location":"Stade Prince Moulay Abdellah, Rabat","capacity":69500,"created_at":"2025-10-01T10:00:00Z"}}
+]
+
