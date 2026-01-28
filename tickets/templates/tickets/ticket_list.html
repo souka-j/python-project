@@ -1,0 +1,16 @@
+{% extends "events/base.html" %}
+
+{% block content %}
+
+<h2>🎟️ My Tickets</h2>
+
+{% for ticket in tickets %}
+    <div>
+        <p>Event: {{ ticket.event }}</p>
+        <p>Quantity: {{ ticket.quantity }}</p>
+    </div>
+{% empty %}
+    <p>No tickets booked yet.</p>
+{% endfor %}
+
+{% endblock %}
