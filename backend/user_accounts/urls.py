@@ -1,15 +1,13 @@
-<<<<<<< HEAD
-from django.urls import path
-from . import views
+from django.contrib import admin
+from django.urls import path, include
 
 urlpatterns = [
-    path('persons/', views.persons_list, name='persons_list'),
+    path('admin/', admin.site.urls),
+    
+    # API
+    path('api/events/', include('events.urls')),
+    path('api/tickets/', include('tickets.urls')),
+    
+    # Pages web public - commencent par 'tickets/'
+    path('tickets/', include('tickets.urls')),
 ]
-=======
-from django.urls import path
-from . import views
-
-urlpatterns = [
-    path('persons/', views.persons_list, name='persons_list'),
-]
->>>>>>> edb4cd70f90e28da79551583ab22fd1c3493f4ef
