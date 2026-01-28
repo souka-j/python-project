@@ -1,0 +1,278 @@
+{% extends 'tickets/base.html' %}
+
+{% block title %}Acheter un ticket - Tickets-Can{% endblock %}
+
+{% block content %}
+<div class="card">
+    <h1 style="margin-bottom: 2rem; color: #1e3c72;">🎫 Acheter un ticket - {{ event.name }}</h1>
+    
+    <!-- Informations sur l'événement -->
+    <div style="background: #e8f4fd; padding: 1.5rem; border-radius: 8px; margin-bottom: 2rem;">
+        <h3 style="color: #1e3c72; margin-bottom: 1rem;">📋 Informations du match</h3>
+        <p><strong>📅 Date :</strong> {{ event.date|date:"d F Y H:i" }}</p>
+        <p><strong>📍 Lieu :</strong> {{ event.location }}</p>
+        <p><strong>🏟️ Capacité :</strong> {{ event.capacity }} places</p>
+    </div>
+    
+    <!-- Formulaire d'achat -->
+    <div style="background: #f8f9fa; padding: 2rem; border-radius: 8px;">
+        <h2 style="color: #1e3c72; margin-bottom: 1.5rem;">Formulaire d'achat</h2>
+        
+        <form method="post" id="ticketForm">
+            {% csrf_token %}
+            
+            <!-- SECTION 1 : Informations personnelles -->
+            <div style="margin-bottom: 2rem; padding-bottom: 1.5rem; border-bottom: 2px solid #dee2e6;">
+                <h3 style="color: #1e3c72; margin-bottom: 1rem;">👤 Informations personnelles</h3>
+                
+                <!-- Nom et Prénom -->
+                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin-bottom: 1rem;">
+                    <div>
+                        <label style="display: block; margin-bottom: 0.5rem; font-weight: bold;">Prénom *</label>
+                        <input type="text" name="first_name" required 
+                               style="padding: 0.5rem; width: 100%; border: 1px solid #ddd; border-radius: 4px;">
+                    </div>
+                    <div>
+                        <label style="display: block; margin-bottom: 0.5rem; font-weight: bold;">Nom *</label>
+                        <input type="text" name="last_name" required 
+                               style="padding: 0.5rem; width: 100%; border: 1px solid #ddd; border-radius: 4px;">
+                    </div>
+                </div>
+                
+               <!-- Date de naissance -->
+<div style="margin-bottom: 1rem;">
+    <label style="display: block; margin-bottom: 0.5rem; font-weight: bold;">
+    📅 Date de naissance *
+    </label>
+    <input type="date" name="birth_date" id="birth_date" required
+    style="padding: 0.5rem; width: 300px; border: 1px solid #ddd; border-radius: 4px;">
+    <p style="font-size: 0.9rem; color: #666; margin-top: 0.3rem;">
+    * Pour les plus de 18 ans, le CIN est obligatoire pour l'entrée au stade
+    </p>
+</div>
+                
+                <!-- CIN (apparaît seulement si +18) -->
+<div id="cin_field" style="margin-bottom: 1rem; display: none;">
+    <label style="display: block; margin-bottom: 0.5rem; font-weight: bold;">
+    📋 Numéro CIN *
+    </label>
+    <input type="text" name="cin" id="cin_input"
+    style="padding: 0.5rem; width: 300px; border: 1px solid #ddd; border-radius: 4px;">
+    <p style="font-size: 0.9rem; color: #666; margin-top: 0.3rem;">
+    Carte d'Identité Nationale (obligatoire pour les +18 ans)
+    </p>
+    
+    <!-- Option pour poster le CIN plus tard -->
+    <div id="cin_later_option" style="margin-top: 0.5rem;">
+        <label style="display: block; margin-bottom: 0.5rem;">
+            <input type="checkbox" name="cin_later" id="cin_later_checkbox">
+            📬 Je posterai mon CIN plus tard
+        </label>
+        <p style="font-size: 0.9rem; color: #666; margin-left: 1.5rem;">
+            Vous pouvez fournir votre CIN jusqu'à 24h avant le match via notre site web.
+        </p>
+    </div>
+</div>
+            
+            <!-- SECTION 2 : Options du ticket -->
+            <div style="margin-bottom: 2rem; padding-bottom: 1.5rem; border-bottom: 2px solid #dee2e6;">
+                <h3 style="color: #1e3c72; margin-bottom: 1rem;">🎟️ Options du ticket</h3>
+                
+                <!-- Type de ticket -->
+                <div style="margin-bottom: 1rem;">
+                    <label style="display: block; margin-bottom: 0.5rem; font-weight: bold;">Type de ticket</label>
+                    <select name="ticket_type" style="padding: 0.5rem; width: 300px; border: 1px solid #ddd; border-radius: 4px;">
+                        <option value="NORMAL">Normal - 150 MAD</option>
+                        <option value="VIP">VIP - 300 MAD</option>
+                        <option value="PREMIUM">Premium - 500 MAD</option>
+                    </select>
+                </div>
+                
+                <!-- Catégorie d'âge -->
+                <div style="margin-bottom: 1rem;">
+                    <label style="display: block; margin-bottom: 0.5rem; font-weight: bold;">Catégorie d'âge</label>
+                    <select name="age_category" style="padding: 0.5rem; width: 300px; border: 1px solid #ddd; border-radius: 4px;">
+                        <option value="ADULT">Adulte (18+)</option>
+                        <option value="STUDENT">Étudiant</option>
+                        <option value="CHILD">Enfant (-18)</option>
+                    </select>
+                </div>
+                
+                <!-- Section du stade -->
+                <div style="margin-bottom: 1rem;">
+                    <label style="display: block; margin-bottom: 0.5rem; font-weight: bold;">Section du stade</label>
+                    <select name="stadium_section" style="padding: 0.5rem; width: 300px; border: 1px solid #ddd; border-radius: 4px;">
+                        <option value="NORTH">Tribune Nord</option>
+                        <option value="SOUTH">Tribune Sud</option>
+                        <option value="EAST">Tribune Est</option>
+                        <option value="WEST">Tribune Ouest</option>
+                        <option value="VIP">Zone VIP</option>
+                    </select>
+                </div>
+                
+                <!-- Numéro de siège -->
+                <div style="margin-bottom: 1rem;">
+                    <label style="display: block; margin-bottom: 0.5rem; font-weight: bold;">💺 Numéro de siège *</label>
+                    <input type="text" name="seat_number" required placeholder="Ex: A12, B5, VIP1" 
+                           style="padding: 0.5rem; width: 200px; border: 1px solid #ddd; border-radius: 4px;">
+                </div>
+                
+                <!-- Nombre de tickets -->
+                <div style="margin-bottom: 1rem;">
+                    <label style="display: block; margin-bottom: 0.5rem; font-weight: bold;">Nombre de tickets *</label>
+                    <input type="number" name="quantity" value="1" min="1" max="10" 
+                           style="padding: 0.5rem; width: 100px; border: 1px solid #ddd; border-radius: 4px;">
+                </div>
+            </div>
+            
+            <!-- SECTION 3 : Membres supplémentaires -->
+            <div style="margin-bottom: 2rem; padding-bottom: 1.5rem; border-bottom: 2px solid #dee2e6;">
+                <h3 style="color: #1e3c72; margin-bottom: 1rem;">👥 Membres supplémentaires</h3>
+                
+                <!-- Ajouter des membres -->
+                <div style="margin-bottom: 1rem;">
+                    <label style="display: block; margin-bottom: 0.5rem; font-weight: bold;">
+                        👥 Nombre de personnes supplémentaires avec vous
+                    </label>
+                    <input type="number" name="additional_members" value="0" min="0" max="5" 
+                           style="padding: 0.5rem; width: 100px; border: 1px solid #ddd; border-radius: 4px;">
+                    <p style="font-size: 0.9rem; color: #666; margin-top: 0.3rem;">
+                        Maximum 5 personnes supplémentaires
+                    </p>
+                </div>
+                
+                <!-- Noms des membres supplémentaires -->
+                <div id="additional_names" style="margin-bottom: 1rem; display: none;">
+                    <label style="display: block; margin-bottom: 0.5rem; font-weight: bold;">
+                        📝 Noms des membres supplémentaires
+                    </label>
+                    <textarea name="additional_members_names" rows="3" 
+                              placeholder="Séparez les noms par des virgules (ex: Ahmed, Fatima, Karim)"
+                              style="padding: 0.5rem; width: 100%; border: 1px solid #ddd; border-radius: 4px;"></textarea>
+                </div>
+            </div>
+            
+            <!-- SECTION 4 : Paiement -->
+            <div style="margin-bottom: 2rem;">
+                <h3 style="color: #1e3c72; margin-bottom: 1rem;">💳 Paiement</h3>
+                
+                <!-- Moyen de paiement -->
+                <div style="margin-bottom: 1rem;">
+                    <label style="display: block; margin-bottom: 0.5rem; font-weight: bold;">Moyen de paiement</label>
+                    <select name="payment_method" style="padding: 0.5rem; width: 300px; border: 1px solid #ddd; border-radius: 4px;">
+                        <option value="CARD">Carte bancaire</option>
+                        <option value="CASH">Cash</option>
+                        <option value="MOBILE">Mobile payment</option>
+                    </select>
+                </div>
+                
+                <!-- Prix calculé -->
+                <div style="background: #fff3cd; padding: 1rem; border-radius: 8px; margin-top: 1rem;">
+                    <p style="font-weight: bold; color: #856404;">
+                        💰 Prix total estimé : <span id="total_price">150</span> MAD
+                    </p>
+                </div>
+            </div>
+            
+            <!-- Boutons -->
+            <div style="display: flex; gap: 1rem; margin-top: 2rem;">
+                <button type="submit" class="btn" style="font-size: 1.1rem; padding: 1rem 2rem;">
+                    💳 Confirmer l'achat
+                </button>
+                <a href="{% url 'event_list' %}" style="padding: 1rem 2rem; color: #2a5298; border: 1px solid #2a5298; 
+                   border-radius: 5px; text-decoration: none; display: inline-block;">
+                    ↩ Retour aux matchs
+                </a>
+            </div>
+        </form>
+    </div>
+</div>
+
+<!-- JavaScript pour les interactions -->
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    const birthDateInput = document.getElementById('birth_date');
+    const cinField = document.getElementById('cin_field');
+    const cinInput = document.getElementById('cin_input');
+    const additionalMembersInput = document.querySelector('input[name="additional_members"]');
+    const additionalNamesDiv = document.getElementById('additional_names');
+    const ticketTypeSelect = document.querySelector('select[name="ticket_type"]');
+    const quantityInput = document.querySelector('input[name="quantity"]');
+    const totalPriceSpan = document.getElementById('total_price');
+    
+    // Prix par type de ticket
+    const prices = {
+        'NORMAL': 150,
+        'VIP': 300,
+        'PREMIUM': 500
+    };
+    
+    // Calculer l'âge et afficher/masquer CIN
+    function checkAge() {
+        if (!birthDateInput.value) return;
+        
+        const birthDate = new Date(birthDateInput.value);
+        const today = new Date();
+        let age = today.getFullYear() - birthDate.getFullYear();
+        const monthDiff = today.getMonth() - birthDate.getMonth();
+        
+        if (monthDiff < 0 || (monthDiff === 0 && today.getDate() < birthDate.getDate())) {
+            age--;
+        }
+        
+            const cinLaterOption = document.getElementById('cin_later_option');
+    
+    if (age >= 18) {
+        cinField.style.display = 'block';
+        cinLaterOption.style.display = 'block';
+        cinInput.required = true;
+    } else {
+        cinField.style.display = 'none';
+        cinLaterOption.style.display = 'none';
+        cinInput.required = false;
+        cinInput.value = '';
+        document.getElementById('cin_later_checkbox').checked = false;
+    }
+        
+    }
+    
+    // Gérer les membres supplémentaires
+    function handleAdditionalMembers() {
+        const count = parseInt(additionalMembersInput.value) || 0;
+        if (count > 0) {
+            additionalNamesDiv.style.display = 'block';
+        } else {
+            additionalNamesDiv.style.display = 'none';
+        }
+    }
+    
+    // Calculer le prix total
+    function calculateTotalPrice() {
+        const ticketType = ticketTypeSelect.value;
+        const quantity = parseInt(quantityInput.value) || 1;
+        const additional = parseInt(additionalMembersInput.value) || 0;
+        const totalTickets = quantity + additional;
+        
+        const pricePerTicket = prices[ticketType] || 150;
+        const total = pricePerTicket * totalTickets;
+        
+        totalPriceSpan.textContent = total;
+    }
+    
+    // Écouteurs d'événements
+    birthDateInput.addEventListener('change', checkAge);
+    additionalMembersInput.addEventListener('input', function() {
+        handleAdditionalMembers();
+        calculateTotalPrice();
+    });
+    ticketTypeSelect.addEventListener('change', calculateTotalPrice);
+    quantityInput.addEventListener('input', calculateTotalPrice);
+    
+    // Initialiser
+    checkAge();
+    handleAdditionalMembers();
+    calculateTotalPrice();
+});
+
+</script>
+{% endblock %}
