@@ -1,1 +1,43 @@
+:root {
+  --red: #c1121f;
+  --green: #0b3d2e;
+  --white: #ffffff;
+}
 
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background-color: var(--white);
+  color: var(--green);
+}
+
+header {
+  background-color: var(--green);
+  color: var(--white);
+  padding: 1rem;
+}
+
+header a {
+  color: var(--white);
+  text-decoration: none;
+  margin-right: 1rem;
+  font-weight: bold;
+}
+
+footer {
+  background-color: var(--red);
+  color: var(--white);
+  text-align: center;
+  padding: 1rem;
+  margin-top: 3rem;
+}
+
+.container {
+  padding: 2rem;
+}
+
+.event-card {
+  border: 2px solid var(--green);
+  padding: 1rem;
+  margin-bottom: 1rem;
+}
